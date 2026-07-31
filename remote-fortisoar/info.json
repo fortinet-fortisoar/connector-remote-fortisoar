@@ -278,7 +278,7 @@
       "operation": "upload_file",
       "title": "Upload file to FortiSOAR",
       "description": "Makes a file upload request based on the provided attachment/file IRI",
-      "category": "Utilities",
+      "category": "investigation",
       "annotation": "upload_file",
       "output_schema": {
         "@id": "",
