@@ -2,12 +2,15 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "c34830bf-149d-42bd-97c8-de42d77018fa",
       "@type": "WorkflowCollection",
-      "name": "Sample - Remote FortiSOAR - 2.0.0",
-      "description": "This connector allows you to run REST API operations on other FortiSOAR environments",
+      "name": "Sample - FortiSOAR - 2.1.0",
+      "description": "Sample playbooks for \"FortiSOAR\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
       "image": null,
+      "uuid": "c34830bf-149d-42bd-97c8-de42d77018fa",
+      "id": 83,
+      "deletedAt": null,
+      "importedBy": [],
       "recordTags": [
         "remote-fortisoar"
       ],
@@ -25,38 +28,11 @@
           "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "lastModifyDate": 1677137426,
-          "collection": "/api/3/workflow_collections/4dc865c8-012e-4326-8be5-252b723ea734",
+          "lastModifyDate": 1785507763,
+          "collection": "/api/3/workflow_collections/c34830bf-149d-42bd-97c8-de42d77018fa",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/067ae8b6-aa32-4659-87ca-d3cb210e0682",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Start",
-              "description": null,
-              "arguments": {
-                "route": "120347c0-ea98-4437-9337-625d0d5f44ed",
-                "title": "Remote FortiSOAR: Make an API call",
-                "resources": [
-                  "alerts"
-                ],
-                "inputVariables": [],
-                "step_variables": {
-                  "input": {
-                    "records": "{{vars.input.records[0]}}"
-                  }
-                },
-                "executeButtonText": "Execute",
-                "noRecordExecution": true,
-                "singleRecordExecution": false
-              },
-              "status": null,
-              "top": "30",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
-              "group": null,
-              "uuid": "067ae8b6-aa32-4659-87ca-d3cb210e0682"
-            },
             {
               "@type": "WorkflowStep",
               "name": "Configuration",
@@ -87,7 +63,7 @@
                   "params": "",
                   "headers": "{\"accept\": \"application/json\"}"
                 },
-                "version": "2.0.0",
+                "version": "2.1.0",
                 "connector": "remote-fortisoar",
                 "operation": "make_api_call",
                 "operationTitle": "Make an API call",
@@ -101,18 +77,36 @@
               "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
               "group": null,
               "uuid": "94f5967a-9024-46df-a1b9-2b7573ce2090"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "120347c0-ea98-4437-9337-625d0d5f44ed",
+                "title": "Remote FortiSOAR: Make an API call",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "067ae8b6-aa32-4659-87ca-d3cb210e0682"
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Start -> Configuration",
-              "targetStep": "/api/3/workflow_steps/2c1edf59-f39d-4c67-83fd-fd9f9eb4bbb7",
-              "sourceStep": "/api/3/workflow_steps/067ae8b6-aa32-4659-87ca-d3cb210e0682",
-              "label": null,
-              "isExecuted": false,
-              "uuid": "f5bcf25c-1e6e-4a4f-b97c-db6fef22c157"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Configuration -> Make an API call",
@@ -120,49 +114,175 @@
               "sourceStep": "/api/3/workflow_steps/2c1edf59-f39d-4c67-83fd-fd9f9eb4bbb7",
               "label": null,
               "isExecuted": false,
+              "group": null,
               "uuid": "c6ace14e-58a4-4b3b-9444-753fd50171ef"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/2c1edf59-f39d-4c67-83fd-fd9f9eb4bbb7",
+              "sourceStep": "/api/3/workflow_steps/067ae8b6-aa32-4659-87ca-d3cb210e0682",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "f5bcf25c-1e6e-4a4f-b97c-db6fef22c157"
             }
           ],
           "groups": [],
           "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
           "uuid": "3453d376-092f-4455-984e-ce0fbf13baba",
-          "id": 1272,
-          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "createDate": 1677133838.747974,
-          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
-          "modifyDate": 1677137426.54012,
+          "id": 790,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
           "importedBy": [],
           "recordTags": [
-            "remote-fortisoar"
+            "FortiSOAR"
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "cb7b35b5-9602-4171-af06-93c006e7f2f5",
-          "collection": "/api/3/workflow_collections/d966f60a-06f9-40eb-b945-088b8a373150",
           "triggerLimit": null,
-          "description": "Makes a file upload request based on the provided attachment/file IRI",
-          "name": "Upload file to FortiSOAR",
+          "name": "Invoke Agent",
+          "aliasName": null,
           "tag": "#Remote FortiSOAR",
-          "recordTags": [
-            "remote-fortisoar"
-          ],
+          "description": "Invoke FortiSOAR AI agent and get the response",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/878657b8-f6e1-4104-9526-0a52f2b1200d",
+          "lastModifyDate": 1785507800,
+          "collection": "/api/3/workflow_collections/c34830bf-149d-42bd-97c8-de42d77018fa",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d1229277-f12d-4498-a45e-397aeade8ce8",
           "steps": [
             {
-              "uuid": "878657b8-f6e1-4104-9526-0a52f2b1200d",
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": [],
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "e6cba332-7c95-4fc1-92b7-149d93d63227"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "IoC Enrichment",
+              "description": null,
+              "arguments": {
+                "name": "Remote FortiSOAR",
+                "config": "9e9d6896-93d7-4d0f-8100-69ccfddf5094",
+                "params": {
+                  "body": "{\"question\": \"Get the reputation of the following indicators\", \"ioc\": [{\"value\": \"1.1.1.1\", \"type\": \"IP Address\"}]}",
+                  "agent_name": "ioc-enrichment"
+                },
+                "version": "2.1.0",
+                "connector": "remote-fortisoar",
+                "operation": "invoke_agent",
+                "operationTitle": "Invoke AI Agent",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "300",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "bd7356c6-82be-4fa5-abf7-80bcdfbef95b"
+            },
+            {
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
+              "arguments": {
+                "route": "dea3211c-0a55-41a7-9c60-477ad8f0764a",
+                "title": "Remote FortiSOAR: Make an API call",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
               "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "d1229277-f12d-4498-a45e-397aeade8ce8"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> IoC Enrichment",
+              "targetStep": "/api/3/workflow_steps/bd7356c6-82be-4fa5-abf7-80bcdfbef95b",
+              "sourceStep": "/api/3/workflow_steps/e6cba332-7c95-4fc1-92b7-149d93d63227",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "aaecdbe6-789b-43db-922e-e0477631c82f"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/e6cba332-7c95-4fc1-92b7-149d93d63227",
+              "sourceStep": "/api/3/workflow_steps/d1229277-f12d-4498-a45e-397aeade8ce8",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "48db028c-bdba-42ef-a444-0d20efd5ad11"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "c25fa5d0-688a-4459-a187-09eb56b7044d",
+          "id": 792,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "FortiSOAR"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Upload file to FortiSOAR",
+          "aliasName": null,
+          "tag": "#Remote FortiSOAR",
+          "description": "Makes a file upload request based on the provided attachment/file IRI",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1785507749,
+          "collection": "/api/3/workflow_collections/c34830bf-149d-42bd-97c8-de42d77018fa",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/878657b8-f6e1-4104-9526-0a52f2b1200d",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
               "arguments": {
                 "route": "e83a3511-241f-4854-9426-860365ecc496",
                 "title": "Remote FortiSOAR: Upload file to FortiSOAR",
@@ -175,47 +295,69 @@
                     "records": "{{vars.input.records[0]}}"
                   }
                 },
-                "singleRecordExecution": false,
+                "executeButtonText": "Execute",
                 "noRecordExecution": true,
-                "executeButtonText": "Execute"
+                "singleRecordExecution": false
               },
-              "left": "20",
+              "status": null,
               "top": "20",
-              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "878657b8-f6e1-4104-9526-0a52f2b1200d"
             },
             {
-              "uuid": "d04d8dd9-8808-41df-a557-e70d191a2035",
               "@type": "WorkflowStep",
               "name": "Upload file to FortiSOAR",
               "description": null,
-              "status": null,
               "arguments": {
                 "name": "Remote FortiSOAR",
                 "config": "''",
                 "params": [],
-                "version": "2.0.0",
+                "version": "2.1.0",
                 "connector": "remote-fortisoar",
                 "operation": "upload_file",
                 "operationTitle": "Upload file to FortiSOAR"
               },
-              "left": "188",
+              "status": null,
               "top": "120",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "d04d8dd9-8808-41df-a557-e70d191a2035"
             }
           ],
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "595e6ef8-4fc7-488a-a5a4-c18520ed783e",
+              "name": "Start-> Upload file to FortiSOAR",
+              "targetStep": "/api/3/workflow_steps/d04d8dd9-8808-41df-a557-e70d191a2035",
+              "sourceStep": "/api/3/workflow_steps/878657b8-f6e1-4104-9526-0a52f2b1200d",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Upload file to FortiSOAR",
-              "sourceStep": "/api/3/workflow_steps/878657b8-f6e1-4104-9526-0a52f2b1200d",
-              "targetStep": "/api/3/workflow_steps/d04d8dd9-8808-41df-a557-e70d191a2035"
+              "group": null,
+              "uuid": "595e6ef8-4fc7-488a-a5a4-c18520ed783e"
             }
+          ],
+          "groups": [],
+          "priority": null,
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "cb7b35b5-9602-4171-af06-93c006e7f2f5",
+          "id": 791,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "FortiSOAR"
           ]
         }
       ]
     }
+  ],
+  "exported_tags": [
+    "remote-fortisoar",
+    "FortiSOAR"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "name": "remote-fortisoar",
-  "version": "2.0.0",
-  "label": "Remote FortiSOAR",
-  "description": "This connector facilitates automated interactions, with a FortiSOAR endpoint using FortiSOAR playbooks. Add the Remote FortiSOAR connector as a step in FortiSOAR playbooks and run REST API operations on FortiSOAR environments other than your own FortiSOAR environment",
+  "version": "2.1.0",
+  "label": "FortiSOAR",
+  "description": "This connector uses APIs to interact with local or remote FortiSOAR systems and invoke agents.",
   "publisher": "Fortinet",
   "contributor": "Priyank Mankad, Mahdi Naili",
   "icon_small_name": "remote-fortisoar_small.png",
@@ -10,7 +10,7 @@
   "cs_approved": true,
   "cs_compatible": true,
   "category": "Utilities",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/2.0.0/remote-fortisoar/892/remote-fortisoar-v2-0-0",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/2.1.0/remote-fortisoar/892/remote-fortisoar-v2-0-0",
   "configuration": {
     "fields": [
       {
@@ -278,7 +278,7 @@
       "operation": "upload_file",
       "title": "Upload file to FortiSOAR",
       "description": "Makes a file upload request based on the provided attachment/file IRI",
-      "category": "Utilities",
+      "category": "investigation",
       "annotation": "upload_file",
       "output_schema": {
         "@id": "",
@@ -307,6 +307,40 @@
           "value": false,
           "tooltip": "Select this option, i.e., set it to True to create attachment of the file in remote FortiSOAR. Clear this option, i.e., set it to False (default) to create file only.",
           "description": "Select this option, i.e., set it to True to create attachment of the file in remote FortiSOAR. Clear this option, i.e., set it to False (default) to create file only."
+        }
+      ],
+      "open": false
+    },
+    {
+      "operation": "invoke_agent",
+      "title": "Invoke AI Agent",
+      "description": "Triggers a remote FortiSOAR AI agent, polls the task status, and returns the final result",
+      "category": "investigation",
+      "annotation": "invoke_agent",
+      "output_schema": {},
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Agent Name",
+          "name": "agent_name",
+          "description": "Specify the AI agent name to invoke, for example ioc-enrichment.",
+          "tooltip": "Specify the AI agent name to invoke, for example ioc-enrichment.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "placeholder": "ioc-enrichment"
+        },      
+        {
+          "title": "Agent Payload",
+          "name": "body",
+          "description": "Provide the JSON body that should be sent to the trigger endpoint for the selected AI agent. Open the agent in the content hub to the required fields",
+          "tooltip": "Provide the JSON body that should be sent to the trigger endpoint for the selected AI agent. Open the agent in the content hub to the required fields",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "value": "{\"question\": \"Get the reputation of the following indicators\", \"ioc\": [{\"value\": \"1.1.1.1\", \"type\": \"IP Address\"}]}"
         }
       ],
       "open": false
